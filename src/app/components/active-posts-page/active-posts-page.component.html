@@ -1,0 +1,22 @@
+<h2 class="text-center my-3">Post Attivi</h2>
+<div *ngFor="let post of posts; let i = index">
+  <app-post-card
+    class="d-flex justify-content-center"
+    *ngIf="post.active"
+    [post]="post"
+  >
+    <div class="d-flex gap-2">
+      <button class="btn btn-primary border-light" (click)="callUpdatePost(i)">
+        Disattiva
+      </button>
+      <button
+        class="btn btn-primary border-light"
+        [routerLink]="['/active-posts/details']"
+        [queryParams]="{ postIndex: i }"
+        routerLinkActive="active"
+      >
+        Dettagli
+      </button>
+    </div>
+  </app-post-card>
+</div>

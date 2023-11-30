@@ -1,0 +1,21 @@
+<div class="mx-5 my-3 w-50">
+  <div
+    class="card"
+    [ngClass]="{
+      'text-bg-warning': post.type === 'news',
+      'text-bg-dark': post.type === 'politic',
+      'text-bg-primary': post.type === 'education'
+    }"
+  >
+    <h5 class="card-header">
+      <span appHighlight>{{ post.id }}° Post</span>
+    </h5>
+    <div class="card-body">
+      <h5 class="card-title">{{ post.title | uppercase }}</h5>
+      <p class="card-text">
+        {{ post.body }}
+      </p>
+      <ng-content></ng-content>
+    </div>
+  </div>
+</div>
